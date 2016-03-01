@@ -1,0 +1,32 @@
+C:\Файлы\учеба\3 курс\6\Технологии программирования\5\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.dll
+C:\Файлы\учеба\3 курс\6\Технологии программирования\5\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.pdb
+C:\Файлы\учеба\3 курс\6\Технологии программирования\5\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.dll
+C:\Файлы\учеба\3 курс\6\Технологии программирования\5\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.pdb
+D:\Profiles\itp2194\Desktop\ТП\My Project\MyMVCApp\MyMVCApp\obj\Debug\ResolveAssemblyReference.cache
+D:\Profiles\itp2194\Desktop\ТП\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.dll
+D:\Profiles\itp2194\Desktop\ТП\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.pdb
+D:\Profiles\itp2194\Desktop\ТП\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.dll
+D:\Profiles\itp2194\Desktop\ТП\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.pdb
+D:\Profiles\itp2194\Desktop\ТП\My Project\MyMVCApp\MyMVCApp\bin\EntityFramework.dll
+C:\Users\kirill.cheremisin\Файлы\Другое\ТП\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.dll
+C:\Users\kirill.cheremisin\Файлы\Другое\ТП\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.pdb
+C:\Users\kirill.cheremisin\Файлы\Другое\ТП\My Project\MyMVCApp\MyMVCApp\bin\EntityFramework.dll
+C:\Users\kirill.cheremisin\Файлы\Другое\ТП\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.csprojResolveAssemblyReference.cache
+C:\Users\kirill.cheremisin\Файлы\Другое\ТП\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.dll
+C:\Users\kirill.cheremisin\Файлы\Другое\ТП\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.pdb
+D:\Profiles\itp2193\Desktop\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.dll
+D:\Profiles\itp2193\Desktop\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.pdb
+D:\Profiles\itp2193\Desktop\My Project\MyMVCApp\MyMVCApp\bin\EntityFramework.dll
+D:\Profiles\itp2193\Desktop\My Project\MyMVCApp\MyMVCApp\obj\Debug\ResolveAssemblyReference.cache
+D:\Profiles\itp2193\Desktop\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.dll
+D:\Profiles\itp2193\Desktop\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.pdb
+C:\My Files\учеба\3 курс\6\Технологии программирования\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.dll
+C:\My Files\учеба\3 курс\6\Технологии программирования\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.pdb
+C:\My Files\учеба\3 курс\6\Технологии программирования\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.csprojResolveAssemblyReference.cache
+C:\My Files\учеба\3 курс\6\Технологии программирования\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.dll
+C:\My Files\учеба\3 курс\6\Технологии программирования\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.pdb
+C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.dll
+C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.pdb
+C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.csprojResolveAssemblyReference.cache
+C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.dll
+C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.pdb

@@ -1,0 +1,109 @@
+table.hovertable, table.tasks{
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+#hovertableID {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+table#hovertableID th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table#hovertableID tr{
+	background-color:#fff;
+}
+table#hovertableID tr:hover{
+	background-color:#d4e3e5;
+}
+table#hovertableID td{
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+	/*border: 1px dashed red;*/
+}
+
+
+table.hovertable th, table.tasks th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr, table.tasks tr {
+	background-color:#fff;
+}
+
+table.hovertable tr:hover, table.tasks tr:hover {
+	background-color:#d4e3e5;
+}
+
+
+table.hovertable td, table.tasks td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+	/*border: 1px dashed red;*/
+}
+
+td input {
+width: 100%;
+overflow-x: visible;
+}
+
+td select {
+width: 100%;
+}
+
+div.ButtonsRightOfTable {
+float: right;
+margin-right: 10%;
+}
+
+div.TableContainerWithScroll {
+float: left;
+width: 80%;
+overflow-x: scroll;
+}
+
+div.TableContainer {
+float: left;
+width: 80%;
+}
+
+/* Second table */
+.SecondTable {
+    margin-top: 50px;
+}
+.condition{
+    width: 60px;
+}
+.date {
+    width: 130px;
+}
+.name {
+    width: 150px;
+}
+
+/* tag p into table*/
+table p 
+{
+    background-color:#fff;
+    }

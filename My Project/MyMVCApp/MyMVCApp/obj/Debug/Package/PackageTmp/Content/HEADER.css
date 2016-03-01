@@ -1,0 +1,79 @@
+#menu {
+padding: 0;
+margin: 0;
+font-family: Arial;
+text-align: center;
+color: #fff;
+padding-bottom: 90px;
+}
+
+#menu > li {
+list-style: none;
+float: left;
+height: 30px;
+padding: 0;
+margin: 0;
+width: 20%;
+background-color: #058EFA;
+position: relative;
+padding-top: 12px;
+}
+
+
+#menu li ul {
+list-style: none;
+padding: 0;
+margin: 0;
+display: none;
+margin-top: 11px;
+}
+
+#menu li a {
+color: #fff;
+text-decoration: none;
+}
+
+#menu li:hover a{
+color: #058EFA;
+}
+
+
+
+#menu li ul li {
+padding: 0;
+margin: 0;
+background-color: #A4D6FF;
+}
+
+li#butt:hover a {
+background-color: #fff;
+color: #058EFA;
+}
+
+#menu li:hover{
+background-color: #fff;
+color: #058EFA;
+}
+
+#menu li:hover ul {
+display: block;
+}
+
+#menu li ul li:hover {
+background-color: #299EFA;
+border-color: #058EFA;
+border-style: solid;
+color: #058EFA;
+}
+
+#menu li ul li:hover a {
+background-color: #299EFA;
+color: #058EFA;
+}
+
+/*** new content ***/
+.nedo-footer {
+    width: 900px;
+    margin-top: 20px;
+    border: 1px solid #000;
+}
