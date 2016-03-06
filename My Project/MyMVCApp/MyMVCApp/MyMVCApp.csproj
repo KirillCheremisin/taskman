@@ -150,7 +150,9 @@
     <Content Include="Views\Users\Create.aspx" />
     <Content Include="Views\Users\Index.aspx" />
     <Content Include="Views\Users\Profile.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
