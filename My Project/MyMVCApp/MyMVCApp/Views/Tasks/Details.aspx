@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <td>Assigned to</td>
-                <td><%: Model.User.UserName + ' '+ Model.User.UserSurname %></td>
+                <td><%: Model.AssignedTo.EmployeeName + ' ' + Model.AssignedTo.EmployeeSurname%></td>
             </tr>
             <tr>
                 <td>Date of creation</td>
@@ -38,7 +38,7 @@
             </tr>
             <tr>
                 <td>Author</td>
-                <td><%: Model.User1.UserName + " " + Model.User1.UserSurname%></td>
+                <td><%: Model.Author.EmployeeName + " " + Model.Author.EmployeeSurname%></td>
             </tr>
         </table>
     </div>

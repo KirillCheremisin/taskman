@@ -13,16 +13,16 @@ namespace MyMVCApp.Security
         public static bool ValidateUser(string username, string password) 
         {
             String PassHash = HashPassword(password);
-            User _user = DataLayer.db.User
+            Employee _user = DataLayer.db.Employee
                 .Where(user => user.Login == username && user.Password == PassHash)
                 .Select(user => user)
                 .FirstOrDefault();
             return _user != null;
         }
 
-        public static User GetUserInfo(string login)
+        public static Employee GetUserInfo(string login)
         {
-            User _user = DataLayer.db.User
+            Employee _user = DataLayer.db.Employee
                 .Where(user => user.Login == login)
                 .Select(user => user)
                 .FirstOrDefault();
@@ -33,14 +33,14 @@ namespace MyMVCApp.Security
         {
             try
             {
-                User _user = DataLayer.db.User
+                Employee _user = DataLayer.db.Employee
                     .Where(user => user.Login == login)
                     .Select(user => user)
                     .FirstOrDefault();
 
                 if (_user != null)
                 {
-                    return (_user.UserRole.RoleName == "adm") ? new string[] { "adm" } : new string[] { "manager" };
+                    return (_user.EmployeeRole.RoleName == "adm") ? new string[] { "adm" } : new string[] { "manager" };
                 }
                 else
                 {

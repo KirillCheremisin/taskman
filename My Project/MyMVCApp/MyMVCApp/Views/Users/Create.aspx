@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<MyMVCApp.Models.User>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<MyMVCApp.Models.Employee>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Create user
@@ -15,35 +15,35 @@
             <legend>Fields</legend>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.UserID) %>
+                <%: Html.LabelFor(model => model.EmployeeID)%>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.UserID) %>
-                <%: Html.ValidationMessageFor(model => model.UserID) %>
+                <%: Html.TextBoxFor(model => model.EmployeeID)%>
+                <%: Html.ValidationMessageFor(model => model.EmployeeID)%>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.UserName) %>
+                <%: Html.LabelFor(model => model.EmployeeName)%>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.UserName) %>
-                <%: Html.ValidationMessageFor(model => model.UserName) %>
+                <%: Html.TextBoxFor(model => model.EmployeeName)%>
+                <%: Html.ValidationMessageFor(model => model.EmployeeName)%>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.UserSurname) %>
+                <%: Html.LabelFor(model => model.EmployeeSurname)%>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.UserSurname) %>
-                <%: Html.ValidationMessageFor(model => model.UserSurname) %>
+                <%: Html.TextBoxFor(model => model.EmployeeSurname)%>
+                <%: Html.ValidationMessageFor(model => model.EmployeeSurname)%>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.UserRoleID) %>
+                <%: Html.LabelFor(model => model.EmployeeRoleID)%>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.UserRoleID) %>
-                <%: Html.ValidationMessageFor(model => model.UserRoleID) %>
+                <%: Html.TextBoxFor(model => model.EmployeeRoleID)%>
+                <%: Html.ValidationMessageFor(model => model.EmployeeRoleID)%>
             </div>
             
             <div class="editor-label">

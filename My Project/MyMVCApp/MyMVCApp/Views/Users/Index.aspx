@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<MyMVCApp.Models.User>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<MyMVCApp.Models.Employee>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Userlist
@@ -14,17 +14,17 @@
 		        <th width="40px">No.</th>
 		        <th>Name</th>
 		        <th>Login</th>
-                <th>Password</th>
+                <!--th>Password</th-->
 		        <th width="60px">Access level</th>
 	        </tr>
             <%foreach (var item in Model) {%>
                 <tr>
-                    <td><input id="<%: item.UserID %>" type="checkbox"/></td>
-                    <td><%: item.UserID %></td>
-                    <td><%: item.UserName + " " + item.UserSurname%></td>
+                    <td><input id="<%: item.EmployeeID %>" type="checkbox"/></td>
+                    <td><%: item.EmployeeID%></td>
+                    <td><%: item.EmployeeName + " " + item.EmployeeSurname%></td>
                     <td><%:  item.Login%></td>
-                    <td><%: item.Password %></td>
-                    <td><%: item.UserRole.RoleName %></td>
+                    <!--td><%: item.Password %></td-->
+                    <td><%: item.EmployeeRole.RoleName%></td>
                 </tr>
             <%} %>
         </table>
@@ -34,7 +34,11 @@
         <%: Html.ActionLink("New user", "Create") %><br />
 	    <!--<button class="MyButton" onclick="return goToLink('new_user.html')">New user</button> <br/>-->
 	    <button class="MyButton" onclick="return goToLink('edit_user.html')">Edit user</button> <br/>
-	    <button class="MyButton" onclick="return deleteCheckedItems('Users');">Delete users</button> <br/>
+	    <button class="MyButton" onclick="return deleteCheckedItems('Users');">Delete users</button> <br/>        
+        <form style="margin:0;padding:0" id="ic3-open-report-form" action="http://localhost:8282/icCube/doc/ic3report?id=1f650f6b-7d92-4f63-a1fb-79f71ae9b846&name=simple%20Pivot" method="post" target="_blank">
+            <!--input type="hidden" name="name" value="/shared/Public Documentation/7 - How To/Parameters"/-->
+            <input class="MyButton" type="submit" value="OLAP" style="font-size:10px"/>
+        </form>
     </div>  
 
     <!--

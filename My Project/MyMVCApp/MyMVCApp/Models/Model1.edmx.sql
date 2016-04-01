@@ -20,8 +20,8 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_ProjectTask]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Task] DROP CONSTRAINT [FK_ProjectTask];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ProjectUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Project] DROP CONSTRAINT [FK_ProjectUser];
+IF OBJECT_ID(N'[dbo].[FK_ProjectEmployee]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Project] DROP CONSTRAINT [FK_ProjectEmployee];
 GO
 IF OBJECT_ID(N'[dbo].[FK_TaskCondition]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Task] DROP CONSTRAINT [FK_TaskCondition];
@@ -29,14 +29,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_TaskStatus]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Task] DROP CONSTRAINT [FK_TaskStatus];
 GO
-IF OBJECT_ID(N'[dbo].[FK_TaskUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Task] DROP CONSTRAINT [FK_TaskUser];
+IF OBJECT_ID(N'[dbo].[FK_TaskEmployee]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Task] DROP CONSTRAINT [FK_TaskEmployee];
 GO
-IF OBJECT_ID(N'[dbo].[FK_TaskUser1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Task] DROP CONSTRAINT [FK_TaskUser1];
+IF OBJECT_ID(N'[dbo].[FK_TaskEmployee1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Task] DROP CONSTRAINT [FK_TaskEmployee1];
 GO
-IF OBJECT_ID(N'[dbo].[FK_UserUserRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User] DROP CONSTRAINT [FK_UserUserRole];
+IF OBJECT_ID(N'[dbo].[FK_EmployeeEmployeeRole]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employee] DROP CONSTRAINT [FK_EmployeeEmployeeRole];
 GO
 
 -- --------------------------------------------------
@@ -58,11 +58,11 @@ GO
 IF OBJECT_ID(N'[dbo].[Task]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Task];
 GO
-IF OBJECT_ID(N'[dbo].[User]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[User];
+IF OBJECT_ID(N'[dbo].[Employee]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Employee];
 GO
-IF OBJECT_ID(N'[dbo].[UserRole]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UserRole];
+IF OBJECT_ID(N'[dbo].[EmployeeRole]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EmployeeRole];
 GO
 
 -- --------------------------------------------------
@@ -118,20 +118,20 @@ CREATE TABLE [dbo].[Task] (
 );
 GO
 
--- Creating table 'User'
-CREATE TABLE [dbo].[User] (
-    [UserID] int IDENTITY(1,1) NOT NULL,
-    [UserName] nvarchar(max)  NOT NULL,
-    [UserSurname] nvarchar(max)  NOT NULL,
-    [UserRoleID] int  NOT NULL,
+-- Creating table 'Employee'
+CREATE TABLE [dbo].[Employee] (
+    [EmployeeID] int IDENTITY(1,1) NOT NULL,
+    [EmployeeName] nvarchar(max)  NOT NULL,
+    [EmployeeSurname] nvarchar(max)  NOT NULL,
+    [EmployeeRoleID] int  NOT NULL,
     [Password] nvarchar(max)  NOT NULL,
     [Login] nvarchar(max)  NOT NULL,
     [Email] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'UserRole'
-CREATE TABLE [dbo].[UserRole] (
+-- Creating table 'EmployeeRole'
+CREATE TABLE [dbo].[EmployeeRole] (
     [RoleID] int IDENTITY(1,1) NOT NULL,
     [RoleName] nvarchar(max)  NOT NULL
 );
@@ -171,15 +171,15 @@ ADD CONSTRAINT [PK_Task]
     PRIMARY KEY CLUSTERED ([TaskID] ASC);
 GO
 
--- Creating primary key on [UserID] in table 'User'
-ALTER TABLE [dbo].[User]
-ADD CONSTRAINT [PK_User]
-    PRIMARY KEY CLUSTERED ([UserID] ASC);
+-- Creating primary key on [EmployeeID] in table 'Employee'
+ALTER TABLE [dbo].[Employee]
+ADD CONSTRAINT [PK_Employee]
+    PRIMARY KEY CLUSTERED ([EmployeeID] ASC);
 GO
 
--- Creating primary key on [RoleID] in table 'UserRole'
-ALTER TABLE [dbo].[UserRole]
-ADD CONSTRAINT [PK_UserRole]
+-- Creating primary key on [RoleID] in table 'EmployeeRole'
+ALTER TABLE [dbo].[EmployeeRole]
+ADD CONSTRAINT [PK_EmployeeRole]
     PRIMARY KEY CLUSTERED ([RoleID] ASC);
 GO
 
@@ -217,14 +217,14 @@ GO
 
 -- Creating foreign key on [AuthorID] in table 'Project'
 ALTER TABLE [dbo].[Project]
-ADD CONSTRAINT [FK_ProjectUser]
+ADD CONSTRAINT [FK_ProjectEmployee]
     FOREIGN KEY ([AuthorID])
-    REFERENCES [dbo].[User]
-        ([UserID])
+    REFERENCES [dbo].[Employee]
+        ([EmployeeID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ProjectUser'
-CREATE INDEX [IX_FK_ProjectUser]
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProjectEmployee'
+CREATE INDEX [IX_FK_ProjectEmployee]
 ON [dbo].[Project]
     ([AuthorID]);
 GO
@@ -245,44 +245,44 @@ GO
 
 -- Creating foreign key on [AuthorID] in table 'Task'
 ALTER TABLE [dbo].[Task]
-ADD CONSTRAINT [FK_TaskUser]
+ADD CONSTRAINT [FK_TaskEmployee]
     FOREIGN KEY ([AuthorID])
-    REFERENCES [dbo].[User]
-        ([UserID])
+    REFERENCES [dbo].[Employee]
+        ([EmployeeID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_TaskUser'
-CREATE INDEX [IX_FK_TaskUser]
+-- Creating non-clustered index for FOREIGN KEY 'FK_TaskEmployee'
+CREATE INDEX [IX_FK_TaskEmployee]
 ON [dbo].[Task]
     ([AuthorID]);
 GO
 
 -- Creating foreign key on [AssignedToID] in table 'Task'
 ALTER TABLE [dbo].[Task]
-ADD CONSTRAINT [FK_TaskUser1]
+ADD CONSTRAINT [FK_TaskEmployee1]
     FOREIGN KEY ([AssignedToID])
-    REFERENCES [dbo].[User]
-        ([UserID])
+    REFERENCES [dbo].[Employee]
+        ([EmployeeID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_TaskUser1'
-CREATE INDEX [IX_FK_TaskUser1]
+-- Creating non-clustered index for FOREIGN KEY 'FK_TaskEmployee1'
+CREATE INDEX [IX_FK_TaskEmployee1]
 ON [dbo].[Task]
     ([AssignedToID]);
 GO
 
--- Creating foreign key on [UserRoleID] in table 'User'
-ALTER TABLE [dbo].[User]
-ADD CONSTRAINT [FK_UserUserRole]
-    FOREIGN KEY ([UserRoleID])
-    REFERENCES [dbo].[UserRole]
+-- Creating foreign key on [EmployeeRoleID] in table 'Employee'
+ALTER TABLE [dbo].[Employee]
+ADD CONSTRAINT [FK_EmployeeEmployeeRole]
+    FOREIGN KEY ([EmployeeRoleID])
+    REFERENCES [dbo].[EmployeeRole]
         ([RoleID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_UserUserRole'
-CREATE INDEX [IX_FK_UserUserRole]
-ON [dbo].[User]
-    ([UserRoleID]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeEmployeeRole'
+CREATE INDEX [IX_FK_EmployeeEmployeeRole]
+ON [dbo].[Employee]
+    ([EmployeeRoleID]);
 GO
 
 -- --------------------------------------------------

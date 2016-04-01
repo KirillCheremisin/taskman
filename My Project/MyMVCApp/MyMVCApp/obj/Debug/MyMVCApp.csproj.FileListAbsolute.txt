@@ -30,3 +30,8 @@ C:\My Files\учеба\Магистратура\1 курс\2\Технологи�
 C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.csprojResolveAssemblyReference.cache
 C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.dll
 C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.pdb
+C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\03 29 My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.dll
+C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\03 29 My Project\MyMVCApp\MyMVCApp\bin\MyMVCApp.pdb
+C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\03 29 My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.csprojResolveAssemblyReference.cache
+C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\03 29 My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.dll
+C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\03 29 My Project\MyMVCApp\MyMVCApp\obj\Debug\MyMVCApp.pdb

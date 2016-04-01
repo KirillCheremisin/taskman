@@ -26,8 +26,8 @@ namespace MyMVCApp.Controllers
             JsonResult Result = new JsonResult();
             JsonResult Result2 = new JsonResult();
             var q = from p in DataLayer.db.Project
-                    join u in DataLayer.db.User on  p.AuthorID equals u.UserID
-                    select new { ProjectId = p.ProjectID, Name = p.Name, Descr = p.Description, Author = u.UserName + u.UserSurname, CreateDate = p.CrateDate };
+                    join u in DataLayer.db.Employee on p.AuthorID equals u.EmployeeID
+                    select new { ProjectId = p.ProjectID, Name = p.Name, Descr = p.Description, Author = u.EmployeeName + u.EmployeeSurname, CreateDate = p.CrateDate };
             Result.Data = new
             {
                 @callback = "ProjectsList",

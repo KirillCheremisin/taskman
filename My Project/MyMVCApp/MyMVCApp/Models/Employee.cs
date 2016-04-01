@@ -12,20 +12,26 @@ namespace MyMVCApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Project
+    public partial class Employee
     {
-        public Project()
+        public Employee()
         {
+            this.Project = new HashSet<Project>();
             this.Task = new HashSet<Task>();
+            this.Task1 = new HashSet<Task>();
         }
     
-        public int ProjectID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public System.DateTime CrateDate { get; set; }
-        public int AuthorID { get; set; }
+        public int EmployeeID { get; set; }
+        public string EmployeeName { get; set; }
+        public string EmployeeSurname { get; set; }
+        public int EmployeeRoleID { get; set; }
+        public string Password { get; set; }
+        public string Login { get; set; }
+        public string Email { get; set; }
     
+        public virtual EmployeeRole EmployeeRole { get; set; }
+        public virtual ICollection<Project> Project { get; set; }
         public virtual ICollection<Task> Task { get; set; }
-        public virtual Employee Employee { get; set; }
+        public virtual ICollection<Task> Task1 { get; set; }
     }
 }

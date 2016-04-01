@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schemaFactory revisionNumber="115">
+    <schemaDefinition name="taskman" description="" group="Default Group" loadOnStartup="false">
+        <activateIncrementalLoad>false</activateIncrementalLoad>
+        <useUnknownMembersInFacts>true</useUnknownMembersInFacts>
+        <autoCleanUpTableColumns>false</autoCleanUpTableColumns>
+        <useFactPartitioning>false</useFactPartitioning>
+        <callGarbageCollector>NONE</callGarbageCollector>
+        <storagePolicy>DEFAULT</storagePolicy>
+        <hierarchyUniqueNameStyle>IncludeDimensionName</hierarchyUniqueNameStyle>
+        <jdbcDS driverType="SQLSERVER" serverName="127.0.0.1\SQLEXPRESS" portNumber="1433" dbName="MySuperDuperProject" user="publicuser" dontAddQuotes="false" password="☂SZ8cRAFNpRoYat37qFGdFA==" name="MySuperDuperProject">
+            <jdbcDatatable fetchSize="1000" tableName="dbo.Task" rowLimit="-1" id="f3f3ea6b-ed81-4b7b-9490-81caf2262f37">
+                <column name="TaskID" tableType="INTEGER" type="INTEGER" selected="true" primaryKey="true"/>
+                <column name="Name" tableType="NVARCHAR(2147483647)" type="STRING" selected="true" primaryKey="false"/>
+                <column name="Description" tableType="NVARCHAR(2147483647)" type="STRING" selected="true" primaryKey="false"/>
+                <column name="CreateDate" tableType="TIMESTAMP" type="DATETIME" selected="true" primaryKey="false"/>
+                <column name="FinishDate" tableType="TIMESTAMP" type="DATETIME" selected="true" primaryKey="false"/>
+                <column name="ConditionID" tableType="INTEGER" type="INTEGER" selected="true" primaryKey="false"/>
+                <column name="StatusID" tableType="INTEGER" type="INTEGER" selected="true" primaryKey="false"/>
+                <column name="AuthorID" tableType="INTEGER" type="INTEGER" selected="true" primaryKey="false"/>
+                <column name="AssignedToID" tableType="INTEGER" type="INTEGER" selected="true" primaryKey="false"/>
+                <column name="ProjectID" tableType="INTEGER" type="INTEGER" selected="true" primaryKey="false"/>
+            </jdbcDatatable>
+            <jdbcDatatable fetchSize="1000" tableName="dbo.Status" rowLimit="-1" id="e6088e43-b7fd-44f7-a564-70e141af7d7f">
+                <column name="StatusID" tableType="INTEGER" type="INTEGER" selected="true" primaryKey="true"/>
+                <column name="StatusName" tableType="NVARCHAR(2147483647)" type="STRING" selected="true" primaryKey="false"/>
+            </jdbcDatatable>
+            <jdbcDatatable fetchSize="1000" partitioningColumnName="" tableName="dbo.Employee" rowLimit="-1" id="ea99dc3a-39bb-456f-a4ed-f60dbb2bc5c9">
+                <column name="EmployeeID" tableType="INTEGER" type="INTEGER" selected="true" primaryKey="true" nullObjectAsString=""/>
+                <column name="EmployeeName" tableType="NVARCHAR(2147483647)" type="STRING" selected="true" primaryKey="false" nullObjectAsString=""/>
+                <column name="EmployeeSurname" tableType="NVARCHAR(2147483647)" type="STRING" selected="true" primaryKey="false" nullObjectAsString=""/>
+                <column name="EmployeeRoleID" tableType="INTEGER" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString=""/>
+                <column name="Password" tableType="NVARCHAR(2147483647)" type="STRING" selected="false" primaryKey="false" nullObjectAsString=""/>
+                <column name="Login" tableType="NVARCHAR(2147483647)" type="STRING" selected="false" primaryKey="false" nullObjectAsString=""/>
+                <column name="Email" tableType="NVARCHAR(2147483647)" type="STRING" selected="true" primaryKey="false" nullObjectAsString=""/>
+            </jdbcDatatable>
+        </jdbcDS>
+        <multiLevelDimension dataTableId="e6088e43-b7fd-44f7-a564-70e141af7d7f" isTimeDimension="false" isDefaultTimeDimension="false" isIndexingByRange="false" unknownMemberName="" id="f69bd21d-0050-4905-b1ef-b7ac83742b9e" name="Status">
+            <multiLevelHierarchy hasAllLevel="false" allLevelName="All-L" allMemberName="All-M" name="Status" isDefault="true" defaultMemberName="">
+                <factAggregationType>MEMBER_AND_ANCESTORS</factAggregationType>
+                <level name="Status" nameUnique="true" nameUniqueInParent="false" keyUnique="true" ignoreNameCollision="false">
+                    <column name="StatusID"/>
+                    <nameCol name="StatusName"/>
+                    <orderType>BY_KEY</orderType>
+                    <orderKind>ASC</orderKind>
+                    <orderColumn name="StatusID"/>
+                </level>
+            </multiLevelHierarchy>
+        </multiLevelDimension>
+        <multiLevelDimension dataTableId="ea99dc3a-39bb-456f-a4ed-f60dbb2bc5c9" isTimeDimension="false" isDefaultTimeDimension="false" isIndexingByRange="false" unknownMemberName="" id="d609007e-57dd-4939-af3c-43668b5a15a7" name="Employee">
+            <multiLevelHierarchy hasAllLevel="false" allLevelName="All-L" allMemberName="All-M" name="Employee" isDefault="true" defaultMemberName="">
+                <factAggregationType>MEMBER_AND_ANCESTORS</factAggregationType>
+                <level name="Employee" nameUnique="true" nameUniqueInParent="false" keyUnique="true" ignoreNameCollision="false">
+                    <column name="EmployeeID"/>
+                    <nameCol name="EmployeeName"/>
+                    <orderType>BY_KEY</orderType>
+                    <orderKind>ASC</orderKind>
+                    <orderColumn name="EmployeeID"/>
+                </level>
+            </multiLevelHierarchy>
+        </multiLevelDimension>
+        <cube id="cbbee312-28e0-429c-986d-48dc7b97543d" name="Tasks Analysys" description="">
+            <defaultFacts measureGroupName="Tasks" partitioningLevelName="" partitioningType="NONE" newGeneration="true" dataTableId="f3f3ea6b-ed81-4b7b-9490-81caf2262f37" aggregateDataSourceFacts="false" unresolvedRowsBehavior="ERROR">
+                <rowFactAggregationType>ADD_ROW</rowFactAggregationType>
+                <measure name="TaskCount" aggregationType="COUNT">
+                    <rollupHierarchy></rollupHierarchy>
+                    <dataColumn name="TaskID"/>
+                    <cellProperties></cellProperties>
+                    <emptyIsZero>true</emptyIsZero>
+                </measure>
+                <links dimensionId="d609007e-57dd-4939-af3c-43668b5a15a7">
+                    <viewLinks type="OLD_GENERATION">
+                        <fromColumns name="EmployeeID"/>
+                        <toColumns name="AssignedToID"/>
+                    </viewLinks>
+                </links>
+                <links dimensionId="f69bd21d-0050-4905-b1ef-b7ac83742b9e">
+                    <viewLinks type="OLD_GENERATION">
+                        <fromColumns name="StatusID"/>
+                        <toColumns name="StatusID"/>
+                    </viewLinks>
+                </links>
+            </defaultFacts>
+        </cube>
+        <localization enabled="false"/>
+        <script>
+            <content>-- 
+-- Automatically migrated from an old XML file definition format (v2.0.4 or before) 
+-- 
+
+-- 
+-- Drop all calc. members, sets and functions declared at schema/cube levels 
+-- 
+
+DROP *
+
+
+-- 
+-- Functions 
+-- 
+
+-- 
+-- Sets 
+-- 
+
+-- 
+-- Calculated Measures/Members 
+-- 
+
+</content>
+        </script>
+    </schemaDefinition>
+</schemaFactory>

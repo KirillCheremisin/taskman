@@ -1,4 +1,4 @@
-﻿// Default code generation is disabled for model 'D:\Profiles\itp2193\Desktop\My Project\MyMVCApp\MyMVCApp\Models\Model1.edmx'. 
-// To enable default code generation, change the value of the 'Code Generation Strategy' designer
-// property to an alternate value. This property is available in the Properties Window when the model is
-// open in the designer.
+﻿// Создание кода по умолчанию отключено для модели "C:\My Files\учеба\Магистратура\1 курс\2\Технология разработки КИС\My Project\MyMVCApp\MyMVCApp\Models\Model1.edmx". 
+// Чтобы включить создание кода по умолчанию, замените значение свойства "Стратегия создания кода"
+// конструктора на другое. Это свойство доступно в окне "Свойства", когда модель
+// открыта в конструкторе.

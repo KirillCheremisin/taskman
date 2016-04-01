@@ -8,7 +8,7 @@
 
 
     <div class="TableContainer"> 
-    <button onclick="return hideTable('.hovertable');">My tasks</button>
+    <button onclick="return hideTable('.hovertable');">My projects</button>
       <table width="100%" class="hovertable">
        <caption>Projects' list</caption>
        <thead>
@@ -26,7 +26,7 @@
                 <td> <input type="checkbox"/> </td>
                 <td> <%: Html.ActionLink(item.Name, "Details", new { id = item.ProjectID})%> </td>
                 <td> <%: item.Description %> </td>
-                <td> <%: Html.ActionLink(item.User.UserName + " " + item.User.UserSurname, "Profile", new {controller = "Users", id = item.User.UserID})%> </td>
+                <td> <%: Html.ActionLink(item.Employee.EmployeeName + " " + item.Employee.EmployeeSurname, "Profile", new { controller = "Users", id = item.Employee.EmployeeID })%> </td>
                 <td> <%: String.Format("{0:g}", item.CrateDate) %> </td>
             </tr>
         <%} %>
@@ -35,7 +35,7 @@
     </div>
 
     <div class="TableContainer SecondTable">
-	    <button onclick="return hideTable('.tasks');">My projects</button>
+	    <button onclick="return hideTable('.tasks');">My tasks</button>
         <table width="100%" class="tasks">
             <tr>
 			    <th class="condition"></th>
@@ -52,13 +52,13 @@
                 <% foreach (var item2 in item.Task) { %>
                 <tr>
                     <td><input type="checkbox"/></</td>
-                    <td><%: Html.ActionLink(item2.Name, "Details", new { id = item2.TaskID})%></td>
+                    <td><%: Html.ActionLink(item2.Name, "Details", new { controller = "Tasks", id = item2.TaskID })%></td>
                     <td><%: item2.Project.Name %></td>
                     <td><%: item2.Status.StatusName %></td>
-                    <td><%: Html.ActionLink(item2.AssignedTo.UserName + " " + item2.AssignedTo.UserSurname, "Profile", new { controller = "Users", id = item2.AssignedToID })%></td>
+                    <td><%: Html.ActionLink(item2.AssignedTo.EmployeeName + " " + item2.AssignedTo.EmployeeSurname, "Profile", new { controller = "Users", id = item2.AssignedToID })%></td>
                     <td><%: String.Format("{0:g}", item2.CreateDate)%></td>
                     <td><%: String.Format("{0:g}", item2.FinishDate)%></td>
-                    <td><%:Html.ActionLink(item2.Author.UserName + " " + item2.Author.UserSurname, "Profile", new { controller = "Users", id = item2.AuthorID })%></td>
+                    <td><%:Html.ActionLink(item2.Author.EmployeeName + " " + item2.Author.EmployeeSurname, "Profile", new { controller = "Users", id = item2.AuthorID })%></td>
                 </tr>
                 <%} %>
             <% } %>

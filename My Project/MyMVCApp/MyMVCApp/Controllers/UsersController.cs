@@ -19,8 +19,8 @@ namespace MyMVCApp.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<User> _user = DataLayer.db.User
-                .OrderBy(user => user.UserID)
+            IEnumerable<Employee> _user = DataLayer.db.Employee
+                .OrderBy(user => user.EmployeeID)
                 .Select(user => user);
             return View(_user);
         }
@@ -30,8 +30,8 @@ namespace MyMVCApp.Controllers
 
         public ActionResult Profile(int id)
         {
-            User _user = DataLayer.db.User
-                .Where(user => user.UserID == id)
+            Employee _user = DataLayer.db.Employee
+                .Where(user => user.EmployeeID == id)
                 .Select(user => user)
                 .FirstOrDefault();
             return View(_user);
@@ -42,19 +42,19 @@ namespace MyMVCApp.Controllers
 
         public ActionResult Create()
         {
-            return View(new User());
+            return View(new Employee());
         } 
 
         //
         // POST: /Users/Create
 
         [HttpPost]
-        public ActionResult Create(User _user)
+        public ActionResult Create(Employee _user)
         {
             if (ModelState.IsValid) 
             {
                 _user.Password = MyMVCApp.Security.SecurityManager.HashPassword(_user.Password);
-                DataLayer.db.User.Add(_user);
+                DataLayer.db.Employee.Add(_user);
                 DataLayer.db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -101,13 +101,13 @@ namespace MyMVCApp.Controllers
             //id = id.Trim();
             //Int32 ident = Int32.Parse(id);
             Int32 ident = id;
-            MyMVCApp.Models.User _user = DataLayer.db.User
-                .Where(user => user.UserID == ident)
+            MyMVCApp.Models.Employee _user = DataLayer.db.Employee
+                .Where(user => user.EmployeeID == ident)
                 .Select(user => user)
                 .FirstOrDefault();
             if (_user != null)
             {
-                DataLayer.db.User.Remove(_user);
+                DataLayer.db.Employee.Remove(_user);
                 DataLayer.db.SaveChanges();
             }
 

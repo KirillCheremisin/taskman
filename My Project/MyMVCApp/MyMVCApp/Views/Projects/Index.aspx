@@ -33,7 +33,7 @@
                 <td> <input type="checkbox"/> </td>
                 <td> <%: Html.ActionLink(item.Name, "Details", new { id = item.ProjectID})%> </td>
                 <td> <%: item.Description %> </td>
-                <td> <%: Html.ActionLink(item.User.UserName + " " + item.User.UserSurname, "Profile", new {controller = "Users", id = item.User.UserID})%> </td>
+                <td> <%: Html.ActionLink(item.Employee.EmployeeName + " " + item.Employee.EmployeeSurname, "Profile", new { controller = "Users", id = item.Employee.EmployeeID })%> </td>
                 <td> <%: String.Format("{0:dd MMM yyyy}", item.CrateDate) %> </td>
             </tr>
         <%} %>

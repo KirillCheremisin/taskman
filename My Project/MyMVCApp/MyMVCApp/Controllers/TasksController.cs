@@ -58,12 +58,12 @@ namespace MyMVCApp.Controllers
                     Value = System.Data.Objects.SqlClient.SqlFunctions.StringConvert((Double)proj.ProjectID)
                 });
             ViewData.Add("proj", _projects);
-            IEnumerable<SelectListItem> _users = DataLayer.db.User
+            IEnumerable<SelectListItem> _users = DataLayer.db.Employee
                 .Select(user => new SelectListItem
                 {
                     Selected = true,
-                    Text = user.UserName + " " + user.UserSurname,
-                    Value = System.Data.Objects.SqlClient.SqlFunctions.StringConvert((Double)user.UserID)
+                    Text = user.EmployeeName + " " + user.EmployeeSurname,
+                    Value = System.Data.Objects.SqlClient.SqlFunctions.StringConvert((Double)user.EmployeeID)
                 });
             ViewData.Add("users", _users);
             return View(new Task());
@@ -81,7 +81,7 @@ namespace MyMVCApp.Controllers
                 _task.CreateDate = DateTime.Now;
                 //_task.AuthorID = CurrentUserID  описать
                 //_task.AuthorID = 9; //изменить
-                _task.AuthorID = MyMVCApp.Security.SecurityManager.GetUserInfo(HttpContext.User.Identity.Name).UserID;
+                _task.AuthorID = MyMVCApp.Security.SecurityManager.GetUserInfo(HttpContext.User.Identity.Name).EmployeeID;
                 if (_task.AssignedToID != 8)
                 {
                     _task.StatusID = 2; //assigned
@@ -93,12 +93,12 @@ namespace MyMVCApp.Controllers
                 _task.ConditionID = 1;
                 //+nav prop
                 #region nav prop
-                _task.Author = DataLayer.db.User
-                    .Where(user => user.UserID == _task.AuthorID)
+                _task.Author = DataLayer.db.Employee
+                    .Where(user => user.EmployeeID == _task.AuthorID)
                     .Select(user => user)
                     .FirstOrDefault();
-                _task.AssignedTo = DataLayer.db.User
-                    .Where(user => user.UserID == _task.AssignedToID)
+                _task.AssignedTo = DataLayer.db.Employee
+                    .Where(user => user.EmployeeID == _task.AssignedToID)
                     .Select(user => user)
                     .FirstOrDefault();
                 _task.Condition = DataLayer.db.Condition
@@ -153,12 +153,12 @@ namespace MyMVCApp.Controllers
                     Value = System.Data.Objects.SqlClient.SqlFunctions.StringConvert((Double)proj.ProjectID)
                 });
             ViewData.Add("proj", _projects);
-            IEnumerable<SelectListItem> _assign = DataLayer.db.User
+            IEnumerable<SelectListItem> _assign = DataLayer.db.Employee
                 .Select(assign => new SelectListItem
                 {
                     Selected = true,
-                    Text = assign.UserName + " " + assign.UserSurname,
-                    Value = System.Data.Objects.SqlClient.SqlFunctions.StringConvert((Double)assign.UserID)
+                    Text = assign.EmployeeName + " " + assign.EmployeeSurname,
+                    Value = System.Data.Objects.SqlClient.SqlFunctions.StringConvert((Double)assign.EmployeeID)
                 });
             ViewData.Add("assign", _assign);
             IEnumerable<SelectListItem> _con = DataLayer.db.Condition

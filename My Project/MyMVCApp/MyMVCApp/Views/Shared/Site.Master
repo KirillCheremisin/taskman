@@ -14,6 +14,7 @@
 
     <script type="text/javascript" src="../../Scripts/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="../../Scripts/MyScripts.js"></script>
+    <script type="text/javascript" src="http://localhost:8282/icCube/doc/ic3-report/app/reporting/js/loader/ic3bootstrap.js"></script>
 </head>
 
 

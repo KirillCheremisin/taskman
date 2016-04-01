@@ -6,8 +6,6 @@
     <EntitySet Name="Status" EntityType="MySuperDuperProjectModel.Status" />
     <EntitySet Name="sysdiagrams" EntityType="MySuperDuperProjectModel.sysdiagrams" />
     <EntitySet Name="Task" EntityType="MySuperDuperProjectModel.Task" />
-    <EntitySet Name="User" EntityType="MySuperDuperProjectModel.User" />
-    <EntitySet Name="UserRole" EntityType="MySuperDuperProjectModel.UserRole" />
     <AssociationSet Name="FK_TaskCondition" Association="MySuperDuperProjectModel.FK_TaskCondition">
       <End Role="Condition" EntitySet="Condition" />
       <End Role="Task" EntitySet="Task" />
@@ -16,25 +14,27 @@
       <End Role="Project" EntitySet="Project" />
       <End Role="Task" EntitySet="Task" />
     </AssociationSet>
-    <AssociationSet Name="FK_ProjectUser" Association="MySuperDuperProjectModel.FK_ProjectUser">
-      <End Role="User" EntitySet="User" />
-      <End Role="Project" EntitySet="Project" />
-    </AssociationSet>
     <AssociationSet Name="FK_TaskStatus" Association="MySuperDuperProjectModel.FK_TaskStatus">
       <End Role="Status" EntitySet="Status" />
       <End Role="Task" EntitySet="Task" />
     </AssociationSet>
-    <AssociationSet Name="FK_TaskUser" Association="MySuperDuperProjectModel.FK_TaskUser">
-      <End Role="User" EntitySet="User" />
+    <EntitySet Name="Employee" EntityType="MySuperDuperProjectModel.Employee" />
+    <EntitySet Name="EmployeeRole" EntityType="MySuperDuperProjectModel.EmployeeRole" />
+    <AssociationSet Name="FK_EmployeeEmployeeRole" Association="MySuperDuperProjectModel.FK_EmployeeEmployeeRole">
+      <End Role="EmployeeRole1" EntitySet="EmployeeRole" />
+      <End Role="Employee1" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectEmployee" Association="MySuperDuperProjectModel.FK_ProjectEmployee">
+      <End Role="Employee1" EntitySet="Employee" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskEmployee" Association="MySuperDuperProjectModel.FK_TaskEmployee">
+      <End Role="Employee1" EntitySet="Employee" />
       <End Role="Task" EntitySet="Task" />
     </AssociationSet>
-    <AssociationSet Name="FK_TaskUser1" Association="MySuperDuperProjectModel.FK_TaskUser1">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="FK_TaskEmployee1" Association="MySuperDuperProjectModel.FK_TaskEmployee1">
+      <End Role="Employee1" EntitySet="Employee" />
       <End Role="Task" EntitySet="Task" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserUserRole" Association="MySuperDuperProjectModel.FK_UserUserRole">
-      <End Role="UserRole" EntitySet="UserRole" />
-      <End Role="User" EntitySet="User" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Condition">
@@ -55,7 +55,7 @@
     <Property Name="CrateDate" Type="DateTime" Nullable="false" />
     <Property Name="AuthorID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Task" Relationship="MySuperDuperProjectModel.FK_ProjectTask" FromRole="Project" ToRole="Task" />
-    <NavigationProperty Name="User" Relationship="MySuperDuperProjectModel.FK_ProjectUser" FromRole="Project" ToRole="User" />
+    <NavigationProperty Name="Employee" Relationship="MySuperDuperProjectModel.FK_ProjectEmployee" FromRole="Project" ToRole="Employee1" />
   </EntityType>
   <EntityType Name="Status">
     <Key>
@@ -92,41 +92,8 @@
     <NavigationProperty Name="Condition" Relationship="MySuperDuperProjectModel.FK_TaskCondition" FromRole="Task" ToRole="Condition" />
     <NavigationProperty Name="Project" Relationship="MySuperDuperProjectModel.FK_ProjectTask" FromRole="Task" ToRole="Project" />
     <NavigationProperty Name="Status" Relationship="MySuperDuperProjectModel.FK_TaskStatus" FromRole="Task" ToRole="Status" />
-    <NavigationProperty Name="Author" Relationship="MySuperDuperProjectModel.FK_TaskUser" FromRole="Task" ToRole="User">
-      <Documentation>
-        <LongDescription>Кому назначена задача
-</LongDescription>
-      </Documentation>
-    </NavigationProperty>
-    <NavigationProperty Name="AssignedTo" Relationship="MySuperDuperProjectModel.FK_TaskUser1" FromRole="Task" ToRole="User">
-      <Documentation>
-        <LongDescription>Автор задачи</LongDescription>
-      </Documentation>
-    </NavigationProperty>
-  </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="UserID" />
-    </Key>
-    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="UserSurname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="UserRoleID" Type="Int32" Nullable="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Project" Relationship="MySuperDuperProjectModel.FK_ProjectUser" FromRole="User" ToRole="Project" />
-    <NavigationProperty Name="Task" Relationship="MySuperDuperProjectModel.FK_TaskUser" FromRole="User" ToRole="Task" />
-    <NavigationProperty Name="Task1" Relationship="MySuperDuperProjectModel.FK_TaskUser1" FromRole="User" ToRole="Task" />
-    <NavigationProperty Name="UserRole" Relationship="MySuperDuperProjectModel.FK_UserUserRole" FromRole="User" ToRole="UserRole" />
-  </EntityType>
-  <EntityType Name="UserRole">
-    <Key>
-      <PropertyRef Name="RoleID" />
-    </Key>
-    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="User" Relationship="MySuperDuperProjectModel.FK_UserUserRole" FromRole="UserRole" ToRole="User" />
+    <NavigationProperty Name="Author" Relationship="MySuperDuperProjectModel.FK_TaskEmployee" FromRole="Task" ToRole="Employee1" />
+    <NavigationProperty Name="AssignedTo" Relationship="MySuperDuperProjectModel.FK_TaskEmployee1" FromRole="Task" ToRole="Employee1" />
   </EntityType>
   <Association Name="FK_TaskCondition">
     <End Role="Condition" Type="MySuperDuperProjectModel.Condition" Multiplicity="1" />
@@ -152,18 +119,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ProjectUser">
-    <End Role="User" Type="MySuperDuperProjectModel.User" Multiplicity="1" />
-    <End Role="Project" Type="MySuperDuperProjectModel.Project" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Project">
-        <PropertyRef Name="AuthorID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_TaskStatus">
     <End Role="Status" Type="MySuperDuperProjectModel.Status" Multiplicity="1" />
     <End Role="Task" Type="MySuperDuperProjectModel.Task" Multiplicity="*" />
@@ -176,39 +131,75 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TaskUser">
-    <End Role="User" Type="MySuperDuperProjectModel.User" Multiplicity="1" />
-    <End Role="Task" Type="MySuperDuperProjectModel.Task" Multiplicity="*" />
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="EmployeeName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EmployeeSurname" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="EmployeeRoleID" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Login" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EmployeeRole" Relationship="MySuperDuperProjectModel.FK_EmployeeEmployeeRole" FromRole="Employee1" ToRole="EmployeeRole1" />
+    <NavigationProperty Name="Project" Relationship="MySuperDuperProjectModel.FK_ProjectEmployee" FromRole="Employee1" ToRole="Project" />
+    <NavigationProperty Name="Task" Relationship="MySuperDuperProjectModel.FK_TaskEmployee" FromRole="Employee1" ToRole="Task" />
+    <NavigationProperty Name="Task1" Relationship="MySuperDuperProjectModel.FK_TaskEmployee1" FromRole="Employee1" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="EmployeeRole">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Type="Int32" Name="RoleID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="MySuperDuperProjectModel.FK_EmployeeEmployeeRole" FromRole="EmployeeRole1" ToRole="Employee1" />
+  </EntityType>
+  <Association Name="FK_EmployeeEmployeeRole">
+    <End Type="MySuperDuperProjectModel.EmployeeRole" Role="EmployeeRole1" Multiplicity="1" />
+    <End Type="MySuperDuperProjectModel.Employee" Role="Employee1" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
+      <Principal Role="EmployeeRole1">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Employee1">
+        <PropertyRef Name="EmployeeRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectEmployee">
+    <End Type="MySuperDuperProjectModel.Employee" Role="Employee1" Multiplicity="1" />
+    <End Type="MySuperDuperProjectModel.Project" Role="Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee1">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="AuthorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskEmployee">
+    <End Type="MySuperDuperProjectModel.Employee" Role="Employee1" Multiplicity="1" />
+    <End Type="MySuperDuperProjectModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee1">
+        <PropertyRef Name="EmployeeID" />
       </Principal>
       <Dependent Role="Task">
         <PropertyRef Name="AuthorID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TaskUser1">
-    <End Role="User" Type="MySuperDuperProjectModel.User" Multiplicity="1" />
-    <End Role="Task" Type="MySuperDuperProjectModel.Task" Multiplicity="*" />
+  <Association Name="FK_TaskEmployee1">
+    <End Type="MySuperDuperProjectModel.Employee" Role="Employee1" Multiplicity="1" />
+    <End Type="MySuperDuperProjectModel.Task" Role="Task" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
+      <Principal Role="Employee1">
+        <PropertyRef Name="EmployeeID" />
       </Principal>
       <Dependent Role="Task">
         <PropertyRef Name="AssignedToID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserUserRole">
-    <End Role="UserRole" Type="MySuperDuperProjectModel.UserRole" Multiplicity="1" />
-    <End Role="User" Type="MySuperDuperProjectModel.User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserRole">
-        <PropertyRef Name="RoleID" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="UserRoleID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

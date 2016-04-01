@@ -26,10 +26,10 @@
         <td><%: item.Project.Name %></td>
         <td><%: item.Status.StatusName %></td>
         <td><%: item.Condition.ConditionName %></td>
-        <td><%: Html.ActionLink(item.AssignedTo.UserName + " " + item.AssignedTo.UserSurname, "Profile", new { controller = "Users", id = item.AssignedToID })%></td>
+        <td><%: Html.ActionLink(item.AssignedTo.EmployeeName + " " + item.AssignedTo.EmployeeSurname, "Profile", new { controller = "Users", id = item.AssignedToID })%></td>
         <td><%: String.Format("{0:dd MMM yyyy}", item.CreateDate)%></td>
         <td><%: String.Format("{0:dd MMM yyyy}", item.FinishDate)%></td>
-        <td><%:Html.ActionLink(item.Author.UserName + " " + item.Author.UserSurname, "Profile", new { controller = "Users", id = item.AuthorID })%></td>
+        <td><%:Html.ActionLink(item.Author.EmployeeName + " " + item.Author.EmployeeSurname, "Profile", new { controller = "Users", id = item.AuthorID })%></td>
     </tr>
     <%} %>
 

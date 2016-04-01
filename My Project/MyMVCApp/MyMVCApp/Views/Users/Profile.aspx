@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<MyMVCApp.Models.User>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<MyMVCApp.Models.Employee>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Profile
@@ -12,16 +12,16 @@
         <legend>Fields</legend>
         
         <div class="display-label">UserID</div>
-        <div class="display-field"><%: Model.UserID %></div>
+        <div class="display-field"><%: Model.EmployeeID%></div>
         
         <div class="display-label">UserName</div>
-        <div class="display-field"><%: Model.UserName %></div>
+        <div class="display-field"><%: Model.EmployeeName%></div>
         
         <div class="display-label">UserSurname</div>
-        <div class="display-field"><%: Model.UserSurname %></div>
+        <div class="display-field"><%: Model.EmployeeSurname%></div>
         
         <div class="display-label">UserRoleID</div>
-        <div class="display-field"><%: Model.UserRoleID %></div>
+        <div class="display-field"><%: Model.EmployeeRoleID%></div>
         
         <div class="display-label">Password</div>
         <div class="display-field"><%: Model.Password %></div>

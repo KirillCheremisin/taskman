@@ -20,14 +20,14 @@ values ('Created'),
 ('Assigned'),
 ('Closed')
 
-insert into UserRole
+insert into EmployeeRole
 (RoleName)
 values ('user'),
 ('adm')
 go
 
-insert into [User]
-(UserName, UserSurname, UserRoleID, Password, Login, Email)
+insert into [Employee]
+(EmployeeName, EmployeeSurname, EmployeeRoleID, Password, Login, Email)
 values 
 ('-', '-', 1, '-', '-', '-'),
 ('Kirill', 'Cheremisin', 2, '19A2854144B63A8F7617A6F225019B12', 'Kirill.Cheremisin', 'admin@mail.ru'),

@@ -55,24 +55,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="IsTypeOf(MySuperDuperProjectModel.User)">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
-          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Login" ColumnName="Login" />
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="MySuperDuperProjectModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
           <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmployeeRoleID" ColumnName="EmployeeRoleID" />
+          <ScalarProperty Name="EmployeeSurname" ColumnName="EmployeeSurname" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserRole">
-      <EntityTypeMapping TypeName="IsTypeOf(MySuperDuperProjectModel.UserRole)">
-        <MappingFragment StoreEntitySet="UserRole">
-          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+    <EntitySetMapping Name="EmployeeRole">
+      <EntityTypeMapping TypeName="MySuperDuperProjectModel.EmployeeRole">
+        <MappingFragment StoreEntitySet="EmployeeRole">
           <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

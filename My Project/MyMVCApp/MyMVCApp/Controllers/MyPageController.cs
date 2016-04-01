@@ -14,8 +14,8 @@ namespace MyMVCApp.Controllers
         public ActionResult Index()
         {
             ViewData["Message"] = "Welcome to ASP.NET MVC!";
-            ViewData.Add("Name", Security.SecurityManager.GetUserInfo(HttpContext.User.Identity.Name).UserName);
-            ViewData.Add("Surname", Security.SecurityManager.GetUserInfo(HttpContext.User.Identity.Name).UserSurname);
+            ViewData.Add("Name", Security.SecurityManager.GetUserInfo(HttpContext.User.Identity.Name).EmployeeName);
+            ViewData.Add("Surname", Security.SecurityManager.GetUserInfo(HttpContext.User.Identity.Name).EmployeeSurname);
 
             IEnumerable<Project> _project = DataLayer.db.Project
                 .OrderBy(proj => proj.ProjectID)
